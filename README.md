@@ -36,6 +36,172 @@
 
 ### Topologia 1
 
+![](https://github.com/LuisRivera2016/Proyecto1_Redes1/blob/main/img/topologia1.png)
+
+**---------------------------------------------- Configuración ESW1 ----------------------------------------------**
+
+```sh
+config t
+vtp domain GRUPO2
+vtp password grupo2
+vtp mode client
+```
+
+Configuración modo trunk para fa1/0, fa1/1 y fa1/2
+```sh
+int f1/0
+switchport mode trunk
+switchport trunk allowed vlan 1,10,20,30,40,1002-1005
+```
+
+```sh
+int f1/1
+switchport mode trunk
+switchport trunk allowed vlan 1,10,20,30,40,1002-1005
+```
+
+```sh
+int f1/2
+switchport mode trunk
+switchport trunk allowed vlan 1,10,20,30,40,1002-1005
+```
+
+**---------------------------------------------- Configuración ESW2 ----------------------------------------------**
+```sh
+config t
+vtp domain GRUPO2
+vtp password grupo2
+vtp mode client
+```
+
+Configuración modo acces/trunk para fa1/0, fa1/1, fa1/2 fa1/3 y fa1/4 
+```sh
+int f1/0
+switchport mode access
+switchport access vlan 10
+```
+
+```sh
+int f1/1
+switchport mode access
+switchport access vlan 30
+```
+
+```sh
+int f1/2
+switchport mode access
+switchport access vlan 10
+```
+
+```sh
+int f1/3
+switchport mode trunk
+switchport trunk allowed vlan 1,10,20,30,40,1002-1005
+```
+
+```sh
+int f1/4
+switchport mode trunk
+switchport trunk allowed vlan 1,10,20,30,40,1002-1005
+```
+
+**---------------------------------------------- Configuración ESW3 ----------------------------------------------**
+```sh
+config t
+vtp domain GRUPO3
+vtp password grupo3
+vtp mode client
+```
+
+Configuración modo access/trunk para fa1/0, fa1/1, fa1/2 fa1/3 y fa1/4 
+```sh
+int f1/0
+switchport mode trunk
+switchport trunk allowed vlan 1,10,20,30,40,1002-1005
+```
+
+```sh
+int f1/1
+switchport mode access
+switchport access vlan 30
+```
+
+```sh
+int f1/2
+switchport mode access
+switchport access vlan 40
+```
+
+```sh
+int f1/3
+switchport mode access
+switchport access vlan 20
+```
+
+```sh
+int f1/4
+switchport mode trunk
+switchport trunk allowed vlan 1,10,20,30,40,1002-1005
+```
+
+
+
+Se utiliza el siguiente comando para switches
+
+```sh
+sh vtp st
+```
+
+![](https://github.com/LuisRivera2016/Proyecto1_Redes1/blob/main/img/vtp_esw1_topologia1.png)
+
+
+Se utiliza el comando: 
+```sh
+sh vlan-sw 
+```
+para ver las configuaraciones aplicadas 
+
+![](https://github.com/LuisRivera2016/Proyecto1_Redes1/blob/main/img/esw1_topologia1.png)
+
+**RRHH_1**
+
+```sh
+ip 192.168.31.10/24 192.168.31.1
+```
+
+**Conta_1**
+
+```sh
+ip 192.168.33.10/24 192.168.33.1
+```
+
+**RRHH_2**
+
+```sh
+ip 192.168.31.20/24 192.168.31.1
+```
+
+**Conta_2**
+
+```sh
+ip 192.168.33.20/24 192.168.33.1
+```
+
+**Informatica_1**
+
+```sh
+ip 192.168.32.10/24 192.168.32.1
+```
+
+Configuración para: CLOUD1
+
+```sh
+Local:4001
+Remoto:4002
+```
+
+![](https://github.com/LuisRivera2016/Proyecto1_Redes1/blob/main/img/CLOUD1_TOPO1.png)
+
 ### Topologia 2
 
 ### Topologia 3
