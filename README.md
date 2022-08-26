@@ -412,4 +412,210 @@ sh vtp status
 ![](https://github.com/LuisRivera2016/Proyecto1_Redes1/blob/main/img/T2_VTPSTATUS.png)
 
 ### Topologia 3
+![](https://github.com/LuisRivera2016/Proyecto1_Redes1/blob/main/img/T3_Topologia.png)
 
+**---------------------------------------------- Configuración ESW9 ----------------------------------------------**
+
+```sh
+config t 
+```
+```sh
+vtp domain GRUPO2
+vtp password grupo2 
+vtp version 2 
+vtp mode client 
+exit 
+```
+*Configuración modo access/trunk para fa1/1 , fa1/2, fa1/3 y f1/4*
+```sh
+int f1/1
+switchport mode access
+switchport access vlan 30
+```
+
+```sh
+int f1/2
+switchport mode trunk
+switchport trunk allowed vlan 1,10,20,30,40,1002-1005
+```
+
+```sh
+int f1/3
+switchport mode trunk
+switchport trunk allowed vlan 1,10,20,30,40,1002-1005
+```
+
+```sh
+int f1/4
+switchport mode trunk
+switchport trunk allowed vlan 1,10,20,30,40,1002-1005
+```
+
+
+
+Se utiliza el siguiente comando para switches
+
+```sh
+sh vtp st
+```
+![](https://github.com/LuisRivera2016/Proyecto1_Redes1/blob/main/img/T3_ESW9.JPG)
+
+**---------------------------------------------- Configuración ESW8 ----------------------------------------------**
+```sh
+config t 
+```
+
+```sh
+vtp domain GRUPO2
+vtp password grupo2
+vtp version 2 
+vtp mode client 
+exit 
+```
+
+*Configuración modo access/trunk para fa1/1 , fa1/2 y f1/3*
+```sh
+int f1/1
+switchport mode access
+switchport access vlan 40
+```
+
+```sh
+int f1/2
+switchport mode trunk
+switchport trunk allowed vlan 1,10,20,30,40,1002-1005
+```
+
+```sh
+int f1/3
+switchport mode trunk
+switchport trunk allowed vlan 1,10,20,30,40,1002-1005
+```
+
+Se utiliza el siguiente comando para switches
+
+```sh
+sh vtp st
+```
+
+![](https://github.com/LuisRivera2016/Proyecto1_Redes1/blob/main/img/T3_ESW8.JPG)
+
+**---------------------------------------------- Configuración ESW10 ----------------------------------------------**
+```sh
+config t 
+```
+
+```sh
+vtp domain GRUPO3
+vtp password grupo3 
+vtp version 2 
+vtp mode client 
+exit 
+```
+
+*Configuración modo access/trunk para fa1/0, fa1/1 , fa1/2 y f1/3*
+```sh
+int f1/1
+switchport mode access
+switchport access vlan 10
+```
+
+```sh
+int f1/2
+switchport mode trunk
+switchport trunk allowed vlan 1,10,20,30,40,1002-1005
+```
+
+```sh
+int f1/3
+switchport mode trunk
+switchport trunk allowed vlan 1,10,20,30,40,1002-1005
+```
+
+Se utiliza el siguiente comando para switches
+
+```sh
+sh vtp st
+```
+
+![](https://github.com/LuisRivera2016/Proyecto1_Redes1/blob/main/img/T3_ESW10.JPG)
+
+**---------------------------------------------- Configuración ESW11 ----------------------------------------------**
+```sh
+config t 
+```
+
+```sh
+vtp domain GRUPO2
+vtp password grupo2 
+vtp version 2 
+vtp mode client 
+exit 
+```
+
+*Configuración modo access/trunk para fa1/0, fa1/1 , fa1/2 y f1/3*
+```sh
+int f1/1
+switchport mode access
+switchport access vlan 20
+```
+
+```sh
+int f1/2
+switchport mode trunk
+switchport trunk allowed vlan 1,10,20,30,40,1002-1005
+```
+
+```sh
+int f1/3
+switchport mode trunk
+switchport trunk allowed vlan 1,10,20,30,40,1002-1005
+```
+
+Se utiliza el siguiente comando para switches
+
+```sh
+sh vtp st
+```
+![](https://github.com/LuisRivera2016/Proyecto1_Redes1/blob/main/img/T3_ESW11.JPG)
+
+**Server_Conta**
+```sh
+ip 192.168.23.12/24 192.168.23.1
+```
+
+**Term_Conta**
+```sh
+ip 192.168.23.11/24 192.168.23.1
+```
+
+**Server_Infor**
+```sh
+ip 192.168.22.11/24 192.168.22.1
+```
+
+**Server_RRHH**
+```sh
+ip 192.168.21.12/24 192.168.21.1
+```
+**Term_RRHH**
+```sh
+ip 192.168.21.11/24 192.168.21.1
+```
+
+**Server_Vent**
+```sh
+ip 192.168.24.11/24 192.168.24.1
+```
+
+**Term_Vent**
+```sh
+ip 192.168.24.12/24 192.168.24.1
+```
+
+*Configuración para: CLOUD1*
+```sh
+Local:4004
+Remoto:4003
+```
+![](https://github.com/LuisRivera2016/Proyecto1_Redes1/blob/main/img/T3_Cloud.JPG)
